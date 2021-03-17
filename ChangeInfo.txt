@@ -1,0 +1,32 @@
+// What is Changed in this version (1.5.1)
+//
+// New-Features:
+// Disallow players to use their playername as password.
+// added RGB color support to the Language-file messages, in the form: %#rrggbb% (like %#ff0000% for red etc.).
+// 	 also specials like %Bold%, %Obfuscated%, %Strikethrough%, %Underline%, %Italic%, %Reset% can be used.
+// added HideInventory setting: Not logged-in Players have Inventory emptied, Restore on Login/Exit/Plugin Diasble.
+// This prevents "Inventory-peeking", players cannot see then Inventory until they log in. 
+// added "/recoverpwd" (Password-Recovery) command so Player gets his (or new/temporary) password in mail (only works if mail is set)
+// Players who forgot their password and cannot login can get this way a new password if they had set their email address.
+// add one entry in config.yml (login section) beneath CapchaOnJoin entry: 
+//  # Hide/Clear Player Inventory on Join if not logged in (prevents inventory-peeking, default = false)
+//  hide_inventory_on_join: false
+// add two entries in config.yml (login section) beneath confirmbodytxt entry: 
+//		recoversubject:  "Requested login password recovery"
+//  	recoverbodytxt:  "Login Password for Player: %1$s is reset to %2$s\nYou can change this after login using the changepassword command\nHappy Mining on our MineCraft Server."
+// add one entries to your language-file:
+//		PASSWORD_RECOVER_MAIL: Recover login, new password send to your email address. 
+//
+// See AmkMcAuth config.yml file for details (includes usage documentation).
+//
+// ToDo:
+// adding "type password twice" option on register, just to be sure, so the player checks his own password.
+// adding bStats Server build (Spigot Paper eg.)
+//
+// IcedToDo:
+// adding security question to reset own password if answer on security question is correct.
+// This option is replaced using the /recoverpwd so player can Recover his password using?
+// "clear player inventory on Join when not logged in and restore on Login and/or leave"
+// This can now be done using inventory plugins by setting the OnJoin, OnLogin and OnLeave AmkMcAuth events
+// adding option to prevent player "pushing" when "teleport_to_spawn: true: is used. But Hiding not logged-in Players works! 
+//        hint to use: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/entity/LivingEntity.html#setCollidable(boolean)
